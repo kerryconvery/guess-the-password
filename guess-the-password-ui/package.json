@@ -1,0 +1,45 @@
+{
+  "name": "guess-the-password-ui",
+  "version": "1.0.0",
+  "description": "Application web user interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:web-client",
+    "test:web-client": "jest test --color",
+    "test-watch:web-client": "jest --watchAll test",
+    "build:web-client": "cross-env APP_ENV=local webpack",
+    "start:web-client": "cross-env APP_ENV=local webpack-dev-server",
+    "start": "npm run start:web-client",
+    "build": "npm run build:web-client"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "lodash": "^4.17.20",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@webpack-cli/serve": "^0.2.0",
+    "babel-jest": "^26.0.1",
+    "babel-plugin-syntax-class-properties": "^6.13.0",
+    "css-loader": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.5.0",
+    "html-webpack-plugin": "^4.3.0",
+    "path": "^0.12.7",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./enzymeSetup.js"
+    ]
+  }
+}

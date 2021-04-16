@@ -1,0 +1,35 @@
+{
+  "name": "guess-the-password",
+  "version": "1.0.0",
+  "description": "Guess the password",
+  "main": "index.js",
+  "author": "kerry convery",
+  "license": "ISC",
+  "scripts": {
+    "start:docker": "lerna run build && docker-compose up",
+    "stop:docker": "docker-compose down",
+    "start:docker:db": "docker-compose up db",
+    "start:docker:web": "docker-compose up web"
+  },
+  "devDependencies": {
+    "@babel/core": "7.10.2",
+    "@babel/preset-env": "7.10.2",
+    "@babel/preset-react": "7.10.1",
+    "babel-eslint": "10.1.0",
+    "babel-jest": "26.0.1",
+    "babel-loader": "8.1.0",
+    "clean-webpack-plugin": "3.0.0",
+    "copy-webpack-plugin": "6.0.2",
+    "cross-env": "^7.0.2",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.2",
+    "jest": "26.0.1",
+    "lerna": "3.22.1",
+    "webpack": "4.43.0",
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "3.11.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}

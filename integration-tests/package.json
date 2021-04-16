@@ -1,0 +1,17 @@
+{
+  "name": "integration-tests",
+  "version": "1.0.0",
+  "description": "Guess the password integration tests",
+  "main": "index.js",
+  "author": "kerry convery",
+  "license": "ISC",
+  "scripts": {
+    "test:integration": "cross-env APP_ENV=local jest --color"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.js?$"
+  }
+}
