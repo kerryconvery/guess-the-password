@@ -10,14 +10,14 @@ const GuessContainer = styled('div')({
   marginTop: '40px',
   width: '200px',
   textAlign: 'center',
- 'overflow-y': 'auto',
+  overflowY: 'auto',
 });
 
-const Guess = ({ guessText, correctCharacters }) => {
+const Guess = ({ guessText, validCharacters }) => {
   return (
     <CharacterList
       characters={guessText.split('')}
-      highlightedCharacters={correctCharacters}
+      highlightedCharacters={validCharacters}
       size='small'
     />
   )
@@ -25,14 +25,14 @@ const Guess = ({ guessText, correctCharacters }) => {
 
 Guess.propTypes = {
   guessText: string.isRequired,
-  correctCharacters: arrayOf(string).isRequired,
+  validCharacters: arrayOf(string).isRequired,
 };
 
 const GuessList = ({ guesses }) => {
   return (
     guesses.map((guess, index) => (
       <GuessContainer key={index}>
-        <Guess guessText={guess.guessText} correctCharacters={guess.correctCharacters} />
+        <Guess guessText={guess.guessText} validCharacters={guess.validCharacters} />
       </GuessContainer>
     ))
   )
@@ -41,7 +41,7 @@ const GuessList = ({ guesses }) => {
 GuessList.propTypes = {
   guesses: arrayOf(shape({
     guessText: string.isRequired,
-    correctCharacters: arrayOf(string).isRequired,
+    validCharacters: arrayOf(string).isRequired,
   })).isRequired,
 }
 

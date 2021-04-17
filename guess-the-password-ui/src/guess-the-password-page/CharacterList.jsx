@@ -30,7 +30,6 @@ Character.defaultProps = {
 }
 
 const CharacterList = ({ characters, highlightedCharacters, size }) => {
-  console.log(characters, highlightedCharacters)
   return characters.map((character, index) => (
     <Character
       key={index}

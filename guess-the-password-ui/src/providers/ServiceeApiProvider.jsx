@@ -1,12 +1,12 @@
 import React, { createContext, useContext } from 'react';
 import { node, object } from 'prop-types';
 
-const SeerviceApiContext = createContext({});
+const ServiceApiContext = createContext({});
 
 export const ServiceApiProvider = ({ serviceApi, children }) => (
-  <SeerviceApiContext.Provider value={serviceApi}>
+  <ServiceApiContext.Provider value={serviceApi}>
     {children}
-  </SeerviceApiContext.Provider>
+  </ServiceApiContext.Provider>
 );
 
 ServiceApiProvider.propTypes = {

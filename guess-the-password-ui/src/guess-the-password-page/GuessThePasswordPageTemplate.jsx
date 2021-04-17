@@ -4,7 +4,7 @@ import { styled } from '@material-ui/core/styles';
 
 const PageContainer = styled('div')({
   display: 'grid',
-  gridTemplateRows: '50px 50px 70vh 1fr auto',
+  gridTemplateRows: '50px 50px 50vh 1fr auto',
   justifyItems: 'center',
   alignItems: 'center',
   minHeight: '100%',

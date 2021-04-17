@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import renderer from 'react-test-renderer';
 import CharacterList from '../CharacterList';
 import '@testing-library/jest-dom/extend-expect';
 
