@@ -4,7 +4,7 @@ import { styled } from '@material-ui/core/styles';
 
 const PageContainer = styled('div')({
   display: 'grid',
-  gridTemplateRows: '50px 20px 1fr auto',
+  gridTemplateRows: '50px 20px 70vh 1fr auto',
   justifyItems: 'center',
   minHeight: '100%'
 });
@@ -12,7 +12,6 @@ const PageContainer = styled('div')({
 const PageTitleContainer = styled('div')({
   gridRowStart: 1,
   gridRowEnd: 1,
-  // borderBottom: '1px solid'
 });
 
 const PageTitle = styled('h1')({
@@ -24,14 +23,6 @@ const PasswordHintContainer = styled('div')({
   gridRowEnd: 2,
 })
 
-const PasswordHintBorder = styled('div')({
-  border: '2px dotted',
-  borderRadius: '4px',
-  width: '150px',
-  margin: 'auto',
-  textAlign: 'center',
-});
-
 const PasswordHint = styled('h2')({
   margin: 0,
 })
@@ -39,27 +30,13 @@ const PasswordHint = styled('h2')({
 const GuessHistoryContainer = styled('div')({
   gridRowStart: 3,
   gridRowEnd: 3,
-});
-
-const GuessHistoryScrollBox = styled('div')({
-  minHeight: 'auto',
-  overflowY: 'scroll',
-});
-
-const ControlsContainer = styled('div')({
-  gridColumnStart: 1,
-  gridColumnEnd: 1,
-  gridRowStart: 3,
-  gridRowEnd: 3,
-  position: 'absolute',
-  maxHeight: '50%',
-  textAlign: 'center',
-  overflowY: 'auto',
+  height: '100%',
+  overflowY: 'auto'
 });
 
 const Footer = styled('div')({
-  gridRowStart: 4,
-  gridRowEnd: 4,
+  gridRowStart: 5,
+  gridRowEnd: 5,
 });
 
 const GuessThePasswordPageTemplate = ({ pageTitle, passwordHint, guessHistory, pageControls }) => {
@@ -72,9 +49,7 @@ const GuessThePasswordPageTemplate = ({ pageTitle, passwordHint, guessHistory, p
         <PasswordHint>{passwordHint}</PasswordHint>
       </PasswordHintContainer>
       <GuessHistoryContainer>
-        <GuessHistoryScrollBox>
-          {guessHistory}
-        </GuessHistoryScrollBox>
+        {guessHistory}
       </GuessHistoryContainer>
       <Footer>
         {pageControls}
