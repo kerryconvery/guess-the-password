@@ -8,6 +8,7 @@ import { useServiceApi } from '../providers/ServiceeApiProvider';
 const selectGuessFields = (response) => ({
   guessText: response.guess,
   validCharacters: response.validCharacters ? response.validCharacters : [],
+  isCorrect: response.isCorrect,
 });
 
 const GuessThePasswordPage = () => {

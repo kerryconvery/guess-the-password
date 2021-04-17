@@ -1,5 +1,5 @@
-import React from 'react';
-import { arrayOf, string, shape } from 'prop-types';
+import React, { Fragment } from 'react';
+import { arrayOf, string, shape, bool } from 'prop-types';
 import { styled } from '@material-ui/core/styles';
 import CharacterList from './CharacterList';
 
@@ -12,6 +12,12 @@ const GuessContainer = styled('div')({
   textAlign: 'center',
   overflowY: 'auto',
 });
+
+const AnswerText = styled('span')({
+  display: 'block',
+  width: '100%',
+  textAlign: 'center',
+})
 
 const Guess = ({ guessText, validCharacters }) => {
   return (
@@ -31,9 +37,16 @@ Guess.propTypes = {
 const GuessList = ({ guesses }) => {
   return (
     guesses.map((guess, index) => (
-      <GuessContainer key={index}>
-        <Guess guessText={guess.guessText} validCharacters={guess.validCharacters} />
+      <Fragment key={index}>
+      <GuessContainer>
+        <Guess
+          guessText={guess.guessText}
+          validCharacters={guess.validCharacters}
+          isCorrect={guess.isCorrect}
+        />
       </GuessContainer>
+      <AnswerText>{guess.isCorrect ? 'Correct guess' : 'Wrong guess'}</AnswerText>
+      </Fragment>
     ))
   )
 }
@@ -42,6 +55,7 @@ GuessList.propTypes = {
   guesses: arrayOf(shape({
     guessText: string.isRequired,
     validCharacters: arrayOf(string).isRequired,
+    isCorrect: bool.isRequired,
   })).isRequired,
 }
 
