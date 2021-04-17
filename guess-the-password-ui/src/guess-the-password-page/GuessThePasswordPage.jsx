@@ -4,29 +4,63 @@ import PageControls from './PageControls';
 import GuessList from './GuessList';
 import CharacterList from './CharacterList';
 
-const mockGuesses = [
-  '234234234',
-  '423444333',
-  '522343444',
-  '242455415',
-  '242455435',
-  '234234234',
-  '242455415',
-  '242455435',
-  '234234234',
-  '242455415',
-  '242455435',
-  '234234231',
+const mockGuesses = [{
+  guessText: '234234234',
+  correctCharacters: ['2','4'],
+}, 
+{
+  guessText: '234234234',
+  correctCharacters: ['3'],
+},
+{
+  guessText: '234234234',
+  correctCharacters: [],
+},
+{
+  guessText: '234234234',
+  correctCharacters: ['2','4'],
+}, 
+{
+  guessText: '234234234',
+  correctCharacters: ['3'],
+},
+{
+  guessText: '234234234',
+  correctCharacters: [],
+},
+{
+  guessText: '234234234',
+  correctCharacters: ['2','4'],
+}, 
+{
+  guessText: '234234234',
+  correctCharacters: ['3'],
+},
+{
+  guessText: '234234234',
+  correctCharacters: [],
+},
+{
+  guessText: '234234234',
+  correctCharacters: ['2','4'],
+}, 
+{
+  guessText: '234234234',
+  correctCharacters: ['3'],
+},
+{
+  guessText: '234234234',
+  correctCharacters: [],
+}
 ];
 
 const mockPasswordHint = '42355523444';
-const mockHighlighedCharacters = ['4','3']
 
 const GuessThePasswordPage = () => {
   return (
     <GuessThePasswordPageTemplate
       pageTitle='Guess The Password!'
-      passwordHint={<CharacterList characters={mockPasswordHint.split('')} highlightedCharacters={mockHighlighedCharacters} />}
+      passwordHint={<CharacterList characters={mockPasswordHint.split('')} size='medium' />}
       guessHistory={<GuessList guesses={mockGuesses} />}
       pageControls={<PageControls />}
     />

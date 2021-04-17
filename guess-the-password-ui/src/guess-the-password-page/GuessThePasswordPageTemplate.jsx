@@ -7,7 +7,8 @@ const PageContainer = styled('div')({
   gridTemplateRows: '50px 50px 70vh 1fr auto',
   justifyItems: 'center',
   alignItems: 'center',
-  minHeight: '100%'
+  minHeight: '100%',
+  backgroundColor: 'white',
 });
 
 const PageTitleContainer = styled('div')({
@@ -24,20 +25,23 @@ const PasswordHintContainer = styled('div')({
   gridRowEnd: 2,
 })
 
-const PasswordHint = styled('h2')({
-  margin: 0,
-})
-
 const GuessHistoryContainer = styled('div')({
   gridRowStart: 3,
   gridRowEnd: 3,
   height: '100%',
-  overflowY: 'auto'
+  overflowY: 'auto',
+  width: '100%',
 });
 
+const GuessHistory = styled('div')({
+  margin: 'auto',
+  width: '200px',
+  height: '100%'
+})
 const Footer = styled('div')({
   gridRowStart: 5,
   gridRowEnd: 5,
+  margin: '10px'
 });
 
 const GuessThePasswordPageTemplate = ({ pageTitle, passwordHint, guessHistory, pageControls }) => {
@@ -50,7 +54,9 @@ const GuessThePasswordPageTemplate = ({ pageTitle, passwordHint, guessHistory, p
         {passwordHint}
       </PasswordHintContainer>
       <GuessHistoryContainer>
+        <GuessHistory>
         {guessHistory}
+        </GuessHistory>
       </GuessHistoryContainer>
       <Footer>
         {pageControls}
