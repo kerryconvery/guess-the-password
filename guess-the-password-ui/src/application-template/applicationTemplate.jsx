@@ -1,18 +1,22 @@
 import React from 'react';
 import { node } from 'prop-types';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
 
-const ApplicationTemplate = ({ children }) => (
-  <Container maxWidth="lg">
-    <Grid container spacing={3} alignItems="center">
-      <Grid item xs={12}></Grid>
-      <Grid item xs={12}>
-        {children}
-      </Grid>
-    </Grid>
-  </Container>
-)
+const useStyles = makeStyles(() => ({
+  container: {
+    minHeight: '100vh',
+  }
+}));
+
+const ApplicationTemplate = ({ children }) => {
+  const classes = useStyles();
+ 
+  return (
+    <div className={classes.container}>
+      {children}
+    </div>
+  )
+}
 
 ApplicationTemplate.propTypes = {
   children: node.isRequired,
