@@ -4,8 +4,9 @@ import { styled } from '@material-ui/core/styles';
 
 const PageContainer = styled('div')({
   display: 'grid',
-  gridTemplateRows: '50px 20px 70vh 1fr auto',
+  gridTemplateRows: '50px 50px 70vh 1fr auto',
   justifyItems: 'center',
+  alignItems: 'center',
   minHeight: '100%'
 });
 
@@ -46,7 +47,7 @@ const GuessThePasswordPageTemplate = ({ pageTitle, passwordHint, guessHistory, p
         <PageTitle>{pageTitle}</PageTitle>
       </PageTitleContainer>
       <PasswordHintContainer>
-        <PasswordHint>{passwordHint}</PasswordHint>
+        {passwordHint}
       </PasswordHintContainer>
       <GuessHistoryContainer>
         {guessHistory}
@@ -60,7 +61,7 @@ const GuessThePasswordPageTemplate = ({ pageTitle, passwordHint, guessHistory, p
 
 GuessThePasswordPageTemplate.propTypes = {
   pageTitle: string.isRequired,
-  passwordHint: string.isRequired,
+  passwordHint: node.isRequired,
   guessHistory: node.isRequired,
   pageControls: node.isRequired,
 }
