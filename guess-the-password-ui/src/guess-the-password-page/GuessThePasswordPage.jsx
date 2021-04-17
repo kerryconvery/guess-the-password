@@ -5,56 +5,6 @@ import GuessList from './GuessList';
 import CharacterList from './CharacterList';
 import { useServiceApi } from '../providers/ServiceeApiProvider';
 
-const mockGuesses = [{
-  guessText: '234234234',
-  correctCharacters: ['2','4'],
-}, 
-{
-  guessText: '234234234',
-  correctCharacters: ['3'],
-},
-{
-  guessText: '234234234',
-  correctCharacters: [],
-},
-{
-  guessText: '234234234',
-  correctCharacters: ['2','4'],
-}, 
-{
-  guessText: '234234234',
-  correctCharacters: ['3'],
-},
-{
-  guessText: '234234234',
-  correctCharacters: [],
-},
-{
-  guessText: '234234234',
-  correctCharacters: ['2','4'],
-}, 
-{
-  guessText: '234234234',
-  correctCharacters: ['3'],
-},
-{
-  guessText: '234234234',
-  correctCharacters: [],
-},
-{
-  guessText: '234234234',
-  correctCharacters: ['2','4'],
-}, 
-{
-  guessText: '234234234',
-  correctCharacters: ['3'],
-},
-{
-  guessText: '234234234',
-  correctCharacters: [],
-}
-];
-
 const selectGuessFields = (response) => ({
   guessText: response.guess,
   validCharacters: response.validCharacters ? response.validCharacters : [],
