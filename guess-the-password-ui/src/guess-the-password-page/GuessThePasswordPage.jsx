@@ -28,8 +28,6 @@ const GuessThePasswordPage = () => {
     setGuessHistory([...guessHistory, selectGuessFields(response)]);
   }
 
-  console.log(guessHistory[0]);
-
   return (
     <GuessThePasswordPageTemplate
       pageTitle='Guess The Password!'
