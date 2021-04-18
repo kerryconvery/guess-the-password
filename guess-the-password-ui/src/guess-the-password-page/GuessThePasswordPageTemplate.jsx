@@ -33,14 +33,15 @@ const GuessHistoryContainer = styled('div')({
   gridRowEnd: 3,
   height: '100%',
   overflowY: 'auto',
-  width: '100%',
+  overflowX: 'hidden',
+  width: '100vw',
 });
 
 const GuessHistory = styled('div')({
   position: 'absolute',
   minHeight: '4em',
   margin: 'auto',
-  width: '100%',
+  width: '100vw',
   height: '100%'
 })
 const Footer = styled('div')({
