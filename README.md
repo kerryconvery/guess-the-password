@@ -10,7 +10,7 @@ Guess the password code challenge.  This application consisted of a NodeJS backe
 ### Commands
 * `lerna bootstrap` - Install all dependencies
 * `lerna run build` - Build all components
-* `lerna run start:docker --stream` - Builds and starts the application inside a docker container
+* `lerna run start:docker --stream` - Builds and starts the application including the service inside a docker container
 * `lerna run stop:docker --stream` - Stops the running application
 * `lerna run test --stream` - run all unit tests
 * `lerna run test:integration --stream` - run the integration tests (web service must be running first)
