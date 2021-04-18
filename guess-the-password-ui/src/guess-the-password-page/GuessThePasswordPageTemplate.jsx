@@ -4,7 +4,7 @@ import { styled } from '@material-ui/core/styles';
 
 const PageContainer = styled('div')({
   display: 'grid',
-  gridTemplateRows: '50px 50px 50vh 1fr auto',
+  gridTemplateRows: '50px 50px 1fr auto',
   justifyItems: 'center',
   alignItems: 'center',
   minHeight: '100%',
@@ -27,6 +27,8 @@ const PasswordHintContainer = styled('div')({
 })
 
 const GuessHistoryContainer = styled('div')({
+  position: 'relative',
+  maxHeight: '100%',
   gridRowStart: 3,
   gridRowEnd: 3,
   height: '100%',
@@ -35,13 +37,15 @@ const GuessHistoryContainer = styled('div')({
 });
 
 const GuessHistory = styled('div')({
+  position: 'absolute',
+  minHeight: '4em',
   margin: 'auto',
-  width: '200px',
+  width: '100%',
   height: '100%'
 })
 const Footer = styled('div')({
-  gridRowStart: 5,
-  gridRowEnd: 5,
+  gridRowStart: 4,
+  gridRowEnd: 4,
   margin: '10px'
 });
 

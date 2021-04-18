@@ -7,7 +7,7 @@ const GuessContainer = styled('div')({
   border: '1px solid',
   borderRadius: '4px',
   padding: '5px 0 5px 0',
-  marginTop: '40px',
+  margin: '40px auto 0 auto',
   width: '200px',
   textAlign: 'center',
   overflowY: 'auto',
