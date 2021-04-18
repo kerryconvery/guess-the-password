@@ -7,7 +7,7 @@ import { GameRepository } from './repositories/GameRepository';
 import { GameFactory } from './domain/services/GameFactory';
 
 const passwordSeedCharacters: Array<string> = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-const passwordLength = 8;
+const passwordLength = 3;
 
 export const configureControllers = (): IController[] => {
   const gameRepository = new GameRepository();
