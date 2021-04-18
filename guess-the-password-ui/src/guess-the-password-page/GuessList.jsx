@@ -40,6 +40,7 @@ const GuessList = ({ guesses }) => {
       <Fragment key={index}>
       <GuessContainer>
         <Guess
+          data-test-id='password-guess'
           guessText={guess.guessText}
           validCharacters={guess.validCharacters}
           isCorrect={guess.isCorrect}

@@ -50,7 +50,7 @@ const GuessThePasswordPageTemplate = ({ pageTitle, passwordHint, guessHistory, p
       <PageTitleContainer>
         <PageTitle>{pageTitle}</PageTitle>
       </PageTitleContainer>
-      <PasswordHintContainer>
+      <PasswordHintContainer data-test-id='password-hint'>
         {passwordHint}
       </PasswordHintContainer>
       <GuessHistoryContainer>
