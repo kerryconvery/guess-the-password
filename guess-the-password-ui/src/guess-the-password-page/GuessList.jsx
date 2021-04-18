@@ -46,7 +46,9 @@ const GuessList = ({ guesses }) => {
           isCorrect={guess.isCorrect}
         />
       </GuessContainer>
-      <AnswerText>{guess.isCorrect ? 'Correct guess' : 'Wrong guess'}</AnswerText>
+        <AnswerText>
+          {`Attempt ${guesses.length - index}: ${guess.isCorrect ? 'Correct guess' : 'Wrong guess'}`}
+        </AnswerText>
       </Fragment>
     ))
   )

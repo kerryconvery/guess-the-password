@@ -31,6 +31,6 @@ describe('When the user enters a password guess and pressed the submit button', 
     cy.get('button')
       .click();
 
-    cy.contains('Wrong guess');
+    cy.contains('Attempt 1: Wrong guess');
   });
 })

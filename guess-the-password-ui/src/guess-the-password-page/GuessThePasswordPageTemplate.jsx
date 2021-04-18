@@ -44,7 +44,7 @@ const Footer = styled('div')({
   margin: '10px'
 });
 
-const GuessThePasswordPageTemplate = ({ pageTitle, passwordHint, guessHistory, pageControls }) => {
+const GuessThePasswordPageTemplate = ({ pageTitle, passwordHint, guessHistory, guessForm }) => {
   return (
     <PageContainer>
       <PageTitleContainer>
@@ -59,7 +59,7 @@ const GuessThePasswordPageTemplate = ({ pageTitle, passwordHint, guessHistory, p
         </GuessHistory>
       </GuessHistoryContainer>
       <Footer>
-        {pageControls}
+        {guessForm}
       </Footer>
     </PageContainer>
   )
@@ -69,7 +69,7 @@ GuessThePasswordPageTemplate.propTypes = {
   pageTitle: string.isRequired,
   passwordHint: node.isRequired,
   guessHistory: node.isRequired,
-  pageControls: node.isRequired,
+  guessForm: node.isRequired,
 }
 
 export default GuessThePasswordPageTemplate;

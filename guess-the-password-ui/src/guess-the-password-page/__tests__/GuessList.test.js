@@ -27,6 +27,26 @@ describe('When rendering a guess', () => {
     expect(screen.getByText('4')).toBeInTheDocument();
   });
 
+  it('should label each guess sequentially', () => {
+    const guesses = [
+      {
+        guessText: '12',
+        validCharacters: ['2'],
+        isCorrect: false,
+      },
+      {
+        guessText: '12',
+        validCharacters: ['2'],
+        isCorrect: false,
+      },
+    ]
+    
+    render(<GuessList guesses={guesses} />);
+
+    expect(screen.getByText('Attempt 2: Wrong guess')).toBeInTheDocument();
+    expect(screen.getByText('Attempt 1: Wrong guess')).toBeInTheDocument();
+  });
+
   it('should display the words "Correct guess" if the guess was correct', () => {
     const guesses = [
       {
@@ -38,7 +58,7 @@ describe('When rendering a guess', () => {
 
     render(<GuessList guesses={guesses} />);
 
-    expect(screen.getByText('Correct guess')).toBeInTheDocument();
+    expect(screen.getByText('Attempt 1: Correct guess')).toBeInTheDocument();
     
   });
 
@@ -53,6 +73,6 @@ describe('When rendering a guess', () => {
     
     render(<GuessList guesses={guesses} />);
 
-    expect(screen.getByText('Wrong guess')).toBeInTheDocument();
+    expect(screen.getByText('Attempt 1: Wrong guess')).toBeInTheDocument();
   });
 })
