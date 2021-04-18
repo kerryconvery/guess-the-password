@@ -26,7 +26,7 @@ const GuessThePasswordPage = () => {
 
     console.log(response);
 
-    setGuessHistory([...guessHistory, selectGuessFields(response)]);
+    setGuessHistory([selectGuessFields(response), ...guessHistory]);
   }
 
   return (
