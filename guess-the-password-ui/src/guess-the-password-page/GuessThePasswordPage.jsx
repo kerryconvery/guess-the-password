@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import GuessThePasswordPageTemplate from './GuessThePasswordPageTemplate';
-import GuessForm from './GuessForm';
 import GuessList from './GuessList';
-import CharacterList from './CharacterList';
+import GuessForm from './GuessForm';
+import PasswordHint from './PasswordHint';
 import { useServiceApi } from '../providers/ServiceeApiProvider';
 
 const selectGuessFields = (response) => ({
@@ -30,7 +30,7 @@ const GuessThePasswordPage = () => {
   return (
     <GuessThePasswordPageTemplate
       pageTitle='Guess The Password!'
-      passwordHint={<CharacterList characters={passwordHint.split('')} size='medium' />}
+      passwordHint={<PasswordHint passwordHint={passwordHint} />}
       guessHistory={<GuessList guesses={guessHistory} />}
       guessForm={<GuessForm guess={currentGuess} onInputGuess={setCurrentGuess} onSubmit={handleSubmit} />}
     />

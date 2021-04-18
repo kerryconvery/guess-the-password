@@ -8,6 +8,7 @@ const PageContainer = styled('div')({
   justifyItems: 'center',
   alignItems: 'center',
   minHeight: '100%',
+  rowGap: '10px',
   backgroundColor: 'white',
 });
 
@@ -16,7 +17,7 @@ const PageTitleContainer = styled('div')({
   gridRowEnd: 1,
 });
 
-const PageTitle = styled('h1')({
+const PageTitle = styled('h2')({
   margin: 0,
 });
 
@@ -50,12 +51,12 @@ const GuessThePasswordPageTemplate = ({ pageTitle, passwordHint, guessHistory, g
       <PageTitleContainer>
         <PageTitle>{pageTitle}</PageTitle>
       </PageTitleContainer>
-      <PasswordHintContainer data-test-id='password-hint'>
+      <PasswordHintContainer>
         {passwordHint}
       </PasswordHintContainer>
       <GuessHistoryContainer>
         <GuessHistory>
-        {guessHistory}
+          {guessHistory}
         </GuessHistory>
       </GuessHistoryContainer>
       <Footer>
