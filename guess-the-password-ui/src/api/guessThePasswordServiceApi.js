@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const createNewPassword = (baseUrl) => () => (
+const createPassword = (baseUrl) => () => (
   axios({
     url: `${baseUrl}/new-password`,
     method: 'POST',
@@ -20,7 +20,7 @@ const verifyPassword = (baseUrl) => (hint, guess) => (
 
 export const getGuessThePasswordServiceApi = (serviceUrl) => {
   return {
-    createNewPassword: createNewPassword(serviceUrl),
+    createPassword: createPassword(serviceUrl),
     verifyPassword: verifyPassword(serviceUrl),
   }
 }
