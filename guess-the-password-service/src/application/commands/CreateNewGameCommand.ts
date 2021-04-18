@@ -3,7 +3,6 @@ import { GameFactory } from '../../domain/services/GameFactory';
 import { GameRepository } from '../../repositories/GameRepository';
 
 export class CreateNewGameCommand {
-  public gamePasswordLength: number;
 };
 
 export class CreateNewGameResponse {
@@ -24,7 +23,7 @@ export class CreateNewGameCommandHandler implements ICommandHandler<CreateNewGam
   }
 
   public handle(command: CreateNewGameCommand): CreateNewGameResponse {
-    const game = this._gameFactory.createGame(command.gamePasswordLength);
+    const game = this._gameFactory.createGame();
     
     this._gameRepository.add(game);
 

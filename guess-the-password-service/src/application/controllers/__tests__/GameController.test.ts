@@ -8,7 +8,7 @@ import { SimplePasswordGenerator } from '../../../domain/services/SimplePassword
 import { Game } from '../../../domain/entities/Game';
 
 const getGameController = (repository: GameRepository) => {
-  const passwordGenerator = new SimplePasswordGenerator(['1','2','3','4','5']);
+  const passwordGenerator = new SimplePasswordGenerator(['1','2','3','4','5'], 6);
   const gameFactory = new GameFactory(passwordGenerator);
   const createNewGameCommandHandler = new CreateNewGameCommandHandler(gameFactory, repository);
   const getGuessValidationQueryHandler = new GetGuessValidationQueryHandler(repository);
@@ -75,7 +75,7 @@ describe('When the guessed password is incorrect', () => {
       hint: '',
       guess: '',
       isCorrect: true,
-      validCharacters: {},
+      validCharacters: Array,
     },
   }
 
@@ -114,6 +114,7 @@ describe('When the guessed password is correct', () => {
       hint: '',
       guess: '',
       isCorrect: true,
+      validCharacters: Array,
     },
   }
 
@@ -128,6 +129,7 @@ describe('When the guessed password is correct', () => {
     expect(response.payload.isCorrect).toEqual(true);
     expect(response.payload.hint).toEqual(game.hint);
     expect(response.payload.guess).toEqual(guess);
+    expect(response.payload.validCharacters).toEqual(['1', '2', '3', '4', '5']);
   });
 });
 

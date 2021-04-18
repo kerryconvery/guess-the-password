@@ -30,7 +30,7 @@ export class GameController implements IController {
   }
 
   public async createNewGame(request: Request, response: Response) {
-    const command = { gamePasswordLength: 8 } as CreateNewGameCommand;
+    const command = new CreateNewGameCommand();
 
     const createGameResponseDto = await this._createNewGameCommandHandler.handle(command);
   

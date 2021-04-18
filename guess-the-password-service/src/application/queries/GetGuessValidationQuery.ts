@@ -26,8 +26,8 @@ export class GetGuessValidationResponseDto {
   public guess: string;
   public validCharacters: Array<string>;
 
-  public static guessedCorrectly(hint: string, guess: string): GetGuessValidationResponseDto {
-    return new GetGuessValidationResponseDto(true, hint, guess, null)
+  public static guessedCorrectly(hint: string, guess: string, validCharacters: Array<string>): GetGuessValidationResponseDto {
+    return new GetGuessValidationResponseDto(true, hint, guess, validCharacters)
   }
 
   public static guessedWrongly(
@@ -61,11 +61,11 @@ export class GetGuessValidationQueryHandler implements IQueryHandler<GetGuessVal
   }
 
   private validationPasswordGuess(game: Game, guess: string): GetGuessValidationResponseDto {
-    if (game.verifyGuess(guess)) {
-      return GetGuessValidationResponseDto.guessedCorrectly(game.hint, guess);
-    };
-
     const validCharacters = game.getMatchedCharacters(guess);
+
+    if (game.verifyGuess(guess)) {
+      return GetGuessValidationResponseDto.guessedCorrectly(game.hint, guess, validCharacters);
+    };
 
     return GetGuessValidationResponseDto.guessedWrongly(game.hint, guess, validCharacters);
   }

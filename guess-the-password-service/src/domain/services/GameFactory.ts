@@ -11,8 +11,8 @@ export class GameFactory {
     this._passwordGeneratorService = passwordGeneratorService;
   }
 
-  public createGame(passwordLength: number): Game {
-    const gamePassword = this._passwordGeneratorService.generate(passwordLength);
+  public createGame(): Game {
+    const gamePassword = this._passwordGeneratorService.generate();
     const passwordHint = _shuffle(gamePassword.split('')).join('');
 
     return new Game(gamePassword, passwordHint);
