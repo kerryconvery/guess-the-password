@@ -8,9 +8,9 @@ const Caption = styled('div')({
 });
 
 const BorderBox = styled('div')({
-  border: '2px dotted',
-  borderRadius: '4px',
-  padding: '5px',
+  border: '0.125rem dotted',
+  borderRadius: '0.25rem',
+  padding: '0.313rem',
 })
 
 const PasswordHint = ({ passwordHint }) => (

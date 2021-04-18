@@ -8,9 +8,8 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(() => ({
   submitButton: {
-    width: '80px',
     margin: 'auto',
-    marginTop: '20px',
+    marginTop: '1.25rem',
   }
 }));
 

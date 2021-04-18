@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react';
 import { arrayOf, string, shape, bool } from 'prop-types';
-import { styled, makeStyles } from '@material-ui/core/styles';
+import { styled } from '@material-ui/core/styles';
 import CharacterList from './CharacterList';
 
 const GuessContainer = styled('div')({
-  border: '1px solid',
-  borderRadius: '4px',
-  padding: '5px 0 5px 0',
+  border: '0.063rem solid',
+  borderRadius: '0.25rem',
+  padding: '0.313rem 0 0.313rem 0',
   margin: '0 auto 0 auto',
   '&:not(:first-child)':{
-    marginTop: '40px',
+    marginTop: '2.5rem',
   },
-  width: '200px',
+  width: '12.5rem',
   textAlign: 'center',
   overflowY: 'auto',
 });

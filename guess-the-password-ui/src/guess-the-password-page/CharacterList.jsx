@@ -7,7 +7,7 @@ const styles = makeStyles(() => ({
     backgroundColor: isHighlighted ? 'green' : 'white',
     color: isHighlighted ? 'white' : 'black',
     fontSize: size === 'small' ? '1em' : '2em',
-    padding: '5px',
+    padding: '0.313rem',
   }),
 }))
 

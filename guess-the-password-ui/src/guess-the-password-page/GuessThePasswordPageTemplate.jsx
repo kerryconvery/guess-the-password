@@ -4,11 +4,11 @@ import { styled } from '@material-ui/core/styles';
 
 const PageContainer = styled('div')({
   display: 'grid',
-  gridTemplateRows: '50px 80px 1fr auto',
+  gridTemplateRows: '3.125rem 5rem 1fr auto',
   justifyItems: 'center',
   alignItems: 'center',
   minHeight: '100%',
-  rowGap: '10px',
+  rowGap: '0.625rem',
   backgroundColor: 'white',
 });
 
@@ -47,7 +47,7 @@ const GuessHistory = styled('div')({
 const Footer = styled('div')({
   gridRowStart: 4,
   gridRowEnd: 4,
-  margin: '10px'
+  margin: '0.625rem'
 });
 
 const GuessThePasswordPageTemplate = ({ pageTitle, passwordHint, guessHistory, guessForm }) => {
