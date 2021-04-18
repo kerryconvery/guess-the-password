@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
 import { ServiceApiProvider } from './providers/ServiceeApiProvider';
+import GuessThePasswordPage from './guess-the-password-page/GuessThePasswordPage';
 import { getGuessThePasswordServiceApi } from './api/guessThePasswordServiceApi';
 import config from '../config.json';
 
@@ -10,7 +10,7 @@ const serviceApi = getGuessThePasswordServiceApi(configuration.guessThePasswordS
 
 ReactDOM.render(
   <ServiceApiProvider serviceApi={serviceApi}>
-    <App />
+    <GuessThePasswordPage />
   </ServiceApiProvider>,
   document.getElementById('app')
 );
