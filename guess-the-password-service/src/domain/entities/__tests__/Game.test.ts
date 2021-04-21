@@ -23,46 +23,6 @@ describe('When creating a new game instance', () => {
   });
 });
 
-describe('When verifying the guessed password', () => {
-  const game = new Game('1234', '3212');
-
-  it('should return true if the guessed password matches the actual password', () => {
-    expect(game.verifyGuess('1234')).toEqual(true);
-  })
-
-  it('should return false if the guessed password does not match the actual password', () => {
-    expect(game.verifyGuess('4324')).toEqual(false);
-  });
-
-  it('should return back the guessed characters that match the password', () => {
-    expect(game.getMatchedCharacters('1374')).toEqual(['1','4']);
-  });
-
-  it('should return back an empty list if no characters match the password', () => {
-    expect(game.getMatchedCharacters('8795')).toEqual([]);
-  });
-
-  it('should return back all matched characters when the guessed password is longer than the actual password', () => {
-    expect(game.getMatchedCharacters('137431')).toEqual(['1','4']);
-  });
-
-  it('should return back all matched characters when the guessed password is shorter than the actual password', () => {
-    expect(game.getMatchedCharacters('543')).toEqual(['3']);
-  });
-
-  it('should return back all matched characters when the guessed password is equal to the actualy password', () => {
-    expect(game.getMatchedCharacters('1234')).toEqual(['1','2', '3', '4']);
-  });
-
-  it('should return back an empty list when not guessed characters match the actualy password', () => {
-    expect(game.getMatchedCharacters('4321')).toEqual([]);
-  });
-
-  it('should not repeat the same character more times than it appears in the password', () => {
-    expect(game.getMatchedCharacters('4133')).toEqual(['3']);
-  })
-});
-
 describe('When getting index of guessed characters that match a character in the actual password at the same position', () => {
   const game = new Game('1234', '3212');
 

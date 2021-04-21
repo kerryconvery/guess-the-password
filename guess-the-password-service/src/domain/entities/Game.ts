@@ -37,21 +37,6 @@ export class Game {
   public verifyGuess(guessedPassword: string): boolean {
     return guessedPassword === this._password;
   }
-  
-  public getMatchedCharacters(guessedPassword: string): Array<string> {
-    const matchedCharacters = new Array<string>();
-
-    let index = 0;
-
-    while (index < guessedPassword.length || index < this._password.length) {
-      if (guessedPassword[index] === this._password[index]) {
-        matchedCharacters.push(guessedPassword[index]);
-      }
-      index++;
-    }
-
-    return matchedCharacters;
-  }
 
   public getMatchedCharacterIndexes(guessedPassword: string): Array<number> {
     const characterPositions = new Array<number>();
