@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import GuessThePasswordPageTemplate from './GuessThePasswordPageTemplate';
+import GuessThePasswordPageTemplate from './GuessThePasswordPageView';
 import GuessList from './GuessList';
 import GuessForm from './GuessForm';
 import PasswordHint from './PasswordHint';
@@ -28,7 +28,7 @@ const GuessThePasswordPage = () => {
   }
 
   return (
-    <GuessThePasswordPageTemplate
+    <GuessThePasswordPageView
       pageTitle='Guess The Password!'
       passwordHint={<PasswordHint passwordHint={passwordHint} />}
       guessHistory={<GuessList guesses={guessHistory} />}
