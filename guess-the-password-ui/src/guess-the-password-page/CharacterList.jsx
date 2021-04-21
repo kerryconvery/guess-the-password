@@ -1,5 +1,5 @@
 import React from 'react';
-import { arrayOf, string, bool, oneOf } from 'prop-types'
+import { arrayOf, string, bool, oneOf, number } from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles';
 
 const styles = makeStyles(() => ({
@@ -29,12 +29,12 @@ Character.defaultProps = {
   isHighlighted: false,
 }
 
-const CharacterList = ({ characters, highlightedCharacters, size }) => {
+const CharacterList = ({ characters, highlightedCharacterIndexes, size }) => {
   return characters.map((character, index) => (
     <Character
       key={index}
       character={character}
-      isHighlighted={highlightedCharacters.includes(character)}
+      isHighlighted={highlightedCharacterIndexes.includes(index)}
       size={size}
     />
   ))
@@ -42,12 +42,12 @@ const CharacterList = ({ characters, highlightedCharacters, size }) => {
 
 CharacterList.propTypes = {
   characters: arrayOf(string).isRequired,
-  highlightedCharacters: arrayOf(string),
+  highlightedCharacterIndexes: arrayOf(number),
   size: oneOf(supportedSizes),
 }
 
 CharacterList.defaultProps = {
-  highlightedCharacters: [],
+  highlightedCharacterIndexes: [],
   size: supportedSizes[0]
 }
 

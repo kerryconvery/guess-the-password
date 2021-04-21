@@ -22,7 +22,7 @@ export class CreateNewGameCommandHandler implements ICommandHandler<CreateNewGam
     this._gameRepository = gameRepository;
   }
 
-  public handle(command: CreateNewGameCommand): CreateNewGameResponse {
+  public handle(): CreateNewGameResponse {
     const game = this._gameFactory.createGame();
     
     this._gameRepository.add(game);

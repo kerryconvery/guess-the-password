@@ -14,25 +14,25 @@ export class GetGuessValidationQuery {
 }
 
 export class GetGuessValidationResponseDto {
-  constructor(isCorrect: boolean, hint: string, guess: string, validCharacters: Array<string>) {
+  constructor(isCorrect: boolean, hint: string, guess: string, validCharacterIndexes: Array<number>) {
     this.isCorrect = isCorrect;
     this.hint = hint;
     this.guess = guess;
-    this.validCharacters = validCharacters; 
+    this.validCharacterIndexes = validCharacterIndexes; 
   }
 
   public isCorrect: boolean;
   public hint: string;
   public guess: string;
-  public validCharacters: Array<string>;
+  public validCharacterIndexes: Array<number>;
 
-  public static guessedCorrectly(hint: string, guess: string, validCharacters: Array<string>): GetGuessValidationResponseDto {
-    return new GetGuessValidationResponseDto(true, hint, guess, validCharacters)
+  public static guessedCorrectly(hint: string, guess: string, validCharacterIndexes: Array<number>): GetGuessValidationResponseDto {
+    return new GetGuessValidationResponseDto(true, hint, guess, validCharacterIndexes)
   }
 
   public static guessedWrongly(
-    hint: string, guess: string, validCharacters: Array<string>): GetGuessValidationResponseDto {
-    return new GetGuessValidationResponseDto(false, hint, guess, validCharacters)
+    hint: string, guess: string, validCharacterIndexes: Array<number>): GetGuessValidationResponseDto {
+    return new GetGuessValidationResponseDto(false, hint, guess, validCharacterIndexes)
   }
 }
 
@@ -61,12 +61,12 @@ export class GetGuessValidationQueryHandler implements IQueryHandler<GetGuessVal
   }
 
   private validationPasswordGuess(game: Game, guess: string): GetGuessValidationResponseDto {
-    const validCharacters = game.getMatchedCharacters(guess);
+    const validCharacterIndexes = game.getMatchedCharacterIndexes(guess);
 
     if (game.verifyGuess(guess)) {
-      return GetGuessValidationResponseDto.guessedCorrectly(game.hint, guess, validCharacters);
+      return GetGuessValidationResponseDto.guessedCorrectly(game.hint, guess, validCharacterIndexes);
     };
 
-    return GetGuessValidationResponseDto.guessedWrongly(game.hint, guess, validCharacters);
+    return GetGuessValidationResponseDto.guessedWrongly(game.hint, guess, validCharacterIndexes);
   }
 }

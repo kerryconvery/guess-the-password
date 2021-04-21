@@ -15,10 +15,10 @@ describe('When rendering characters', () => {
   });
 
   it('should highlight highlighted characters in green', () => {
-    const highlightedCharacters = ['2'];
+    const highlightedCharacterIndexes = [1];
 
 
-    render(<CharacterList characters={characters} highlightedCharacters={highlightedCharacters}/>);
+    render(<CharacterList characters={characters} highlightedCharacterIndexes={highlightedCharacterIndexes}/>);
 
     const highlightedCharacter = screen.getByText('2');
 
@@ -27,10 +27,9 @@ describe('When rendering characters', () => {
   });
 
   it('should not highlight non highlighted characters', () => {
-    const highlightedCharacters = ['2'];
+    const highlightedCharacterIndexes = [1];
 
-
-    render(<CharacterList characters={characters} highlightedCharacters={highlightedCharacters}/>);
+    render(<CharacterList characters={characters} highlightedCharacterIndexes={highlightedCharacterIndexes}/>);
 
     const highlightedCharacter = screen.getByText('1');
 

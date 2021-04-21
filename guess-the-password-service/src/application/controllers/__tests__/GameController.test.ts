@@ -75,7 +75,7 @@ describe('When the guessed password is incorrect', () => {
       hint: '',
       guess: '',
       isCorrect: true,
-      validCharacters: Array,
+      validCharacterIndexes: Array,
     },
   }
 
@@ -96,7 +96,7 @@ describe('When the guessed password is incorrect', () => {
     await gameController.verifyPassword(request, mockResponse)
 
     expect(response.statusCode).toEqual(200);
-    expect(response.payload.validCharacters).toEqual(['3', '5']);
+    expect(response.payload.validCharacterIndexes).toEqual([2, 4]);
   });
 });
 
@@ -114,7 +114,7 @@ describe('When the guessed password is correct', () => {
       hint: '',
       guess: '',
       isCorrect: true,
-      validCharacters: Array,
+      validCharacterIndexes: Array,
     },
   }
 
@@ -129,7 +129,7 @@ describe('When the guessed password is correct', () => {
     expect(response.payload.isCorrect).toEqual(true);
     expect(response.payload.hint).toEqual(game.hint);
     expect(response.payload.guess).toEqual(guess);
-    expect(response.payload.validCharacters).toEqual(['1', '2', '3', '4', '5']);
+    expect(response.payload.validCharacterIndexes).toEqual([0, 1, 2, 3, 4]);
   });
 });
 

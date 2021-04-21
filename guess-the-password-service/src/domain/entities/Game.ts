@@ -53,6 +53,21 @@ export class Game {
     return matchedCharacters;
   }
 
+  public getMatchedCharacterIndexes(guessedPassword: string): Array<number> {
+    const characterPositions = new Array<number>();
+
+    let index = 0;
+
+    while (index < guessedPassword.length || index < this._password.length) {
+      if (guessedPassword[index] === this._password[index]) {
+        characterPositions.push(index);
+      }
+      index++;
+    }
+
+    return characterPositions;
+  }
+
   public get password(): string {
     return this._password;
   }

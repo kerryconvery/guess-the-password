@@ -4,17 +4,16 @@ import GuessList from '../GuessList';
 import '@testing-library/jest-dom/extend-expect';
 
 describe('When rendering a guess', () => {
-
   it('should render a list of guesses', () => {
     const guesses = [
       {
         guessText: '12',
-        validCharacters: [],
+        validCharacterIndexes: [],
         isCorrect: true,
       },
       {
         guessText: '34',
-        validCharacters: [],
+        validCharacterIndexes: [],
         isCorrect: true,
       }
     ]
@@ -31,12 +30,12 @@ describe('When rendering a guess', () => {
     const guesses = [
       {
         guessText: '12',
-        validCharacters: ['2'],
+        validCharacterIndexes: [1],
         isCorrect: false,
       },
       {
         guessText: '12',
-        validCharacters: ['2'],
+        validCharacterIndexes: [1],
         isCorrect: false,
       },
     ]
@@ -51,7 +50,7 @@ describe('When rendering a guess', () => {
     const guesses = [
       {
         guessText: '12',
-        validCharacters: [],
+        validCharacterIndexes: [],
         isCorrect: true,
       }
     ]
@@ -66,7 +65,7 @@ describe('When rendering a guess', () => {
     const guesses = [
       {
         guessText: '12',
-        validCharacters: ['2'],
+        validCharacterIndexes: [2],
         isCorrect: false,
       },
     ]

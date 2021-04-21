@@ -57,4 +57,32 @@ describe('When verifying the guessed password', () => {
   it('should return back an empty list when not guessed characters match the actualy password', () => {
     expect(game.getMatchedCharacters('4321')).toEqual([]);
   });
+
+  it('should not repeat the same character more times than it appears in the password', () => {
+    expect(game.getMatchedCharacters('4133')).toEqual(['3']);
+  })
 });
+
+describe('When getting index of guessed characters that match a character in the actual password at the same position', () => {
+  const game = new Game('1234', '3212');
+
+  it('should return back the charater index for each character that matches', () => {
+    expect(game.getMatchedCharacterIndexes('1432')).toEqual([0, 2]);
+  });
+
+  it('should return back the charater index even if the guessed password is shorter than the password', () => {
+    expect(game.getMatchedCharacterIndexes('143')).toEqual([0, 2]);
+  });
+
+  it('should return back the charater position even if the guessed password is longer than the password', () => {
+    expect(game.getMatchedCharacterIndexes('14324')).toEqual([0, 2]);
+  });
+
+  it('should return back an empty list if no characters match at the same position', () => {
+    expect(game.getMatchedCharacterIndexes('4325')).toEqual([]);
+  });
+
+  it('should return back an empty list if the guessed password is an empty string', () => {
+    expect(game.getMatchedCharacterIndexes('')).toEqual([]);
+  });
+})

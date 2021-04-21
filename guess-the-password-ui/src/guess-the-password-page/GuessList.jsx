@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { arrayOf, string, shape, bool } from 'prop-types';
+import { arrayOf, string, shape, bool, number } from 'prop-types';
 import { styled } from '@material-ui/core/styles';
 import CharacterList from './CharacterList';
 
@@ -22,11 +22,11 @@ const AnswerText = styled('span')({
   textAlign: 'center',
 })
 
-const Guess = ({ guessText, validCharacters }) => {
+const Guess = ({ guessText, validCharacterIndexes }) => {
   return (
     <CharacterList
       characters={guessText.split('')}
-      highlightedCharacters={validCharacters}
+      highlightedCharacterIndexes={validCharacterIndexes}
       size='small'
     />
   )
@@ -34,7 +34,7 @@ const Guess = ({ guessText, validCharacters }) => {
 
 Guess.propTypes = {
   guessText: string.isRequired,
-  validCharacters: arrayOf(string).isRequired,
+  validCharacterIndexes: arrayOf(number).isRequired,
 };
 
 const GuessList = ({ guesses }) => {
@@ -45,7 +45,7 @@ const GuessList = ({ guesses }) => {
         <Guess
           data-test-id='password-guess'
           guessText={guess.guessText}
-          validCharacters={guess.validCharacters}
+          validCharacterIndexes={guess.validCharacterIndexes}
           isCorrect={guess.isCorrect}
         />
       </GuessContainer>
@@ -60,7 +60,7 @@ const GuessList = ({ guesses }) => {
 GuessList.propTypes = {
   guesses: arrayOf(shape({
     guessText: string.isRequired,
-    validCharacters: arrayOf(string).isRequired,
+    validCharacterIndexes: arrayOf(number).isRequired,
     isCorrect: bool.isRequired,
   })).isRequired,
 }
