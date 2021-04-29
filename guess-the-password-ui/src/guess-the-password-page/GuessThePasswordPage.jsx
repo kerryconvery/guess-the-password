@@ -1,57 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { styled } from '@material-ui/core/styles';
+import GuessThePasswordPageView from './GuessThePasswordPageView';
 import GuessList from './GuessList';
 import GuessForm from './GuessForm';
 import PasswordHint from './PasswordHint';
 import { useServiceApi } from '../providers/ServiceeApiProvider';
-
-const PageContainer = styled('div')({
-  display: 'grid',
-  gridTemplateRows: '3.125rem 5rem 1fr auto',
-  justifyItems: 'center',
-  alignItems: 'center',
-  minHeight: '100%',
-  rowGap: '0.625rem',
-  backgroundColor: 'white',
-});
-
-const PageTitleContainer = styled('div')({
-  gridRowStart: 1,
-  gridRowEnd: 1,
-});
-
-const PageTitle = styled('h2')({
-  margin: 0,
-});
-
-const PasswordHintContainer = styled('div')({
-  gridRowStart: 2,
-  gridRowEnd: 2,
-})
-
-const GuessHistoryContainer = styled('div')({
-  gridRowStart: 3,
-  gridRowEnd: 3,
-  position: 'relative',
-  maxHeight: '100%',
-  height: '100%',
-  overflowY: 'auto',
-  overflowX: 'hidden',
-  width: '100vw',
-});
-
-const GuessHistory = styled('div')({
-  position: 'absolute',
-  minHeight: '4em',
-  margin: 'auto',
-  width: '100vw',
-  height: '100%'
-})
-const Footer = styled('div')({
-  gridRowStart: 4,
-  gridRowEnd: 4,
-  margin: '0.625rem'
-});
 
 const selectGuessFields = (response) => ({
   guessText: response.guess,
@@ -76,22 +28,11 @@ const GuessThePasswordPage = () => {
   }
 
   return (
-    <PageContainer>
-      <PageTitleContainer>
-        <PageTitle>Guess The Password!</PageTitle>
-      </PageTitleContainer>
-      <PasswordHintContainer>
-        <PasswordHint passwordHint={passwordHint} />
-      </PasswordHintContainer>
-      <GuessHistoryContainer>
-        <GuessHistory>
-          <GuessList guesses={guessHistory} />
-        </GuessHistory>
-      </GuessHistoryContainer>
-      <Footer>
-        <GuessForm guess={currentGuess} onInputGuess={setCurrentGuess} onSubmit={handleSubmit} />
-      </Footer>
-    </PageContainer>
+    <GuessThePasswordPageView
+      passwordHint={<PasswordHint passwordHint={passwordHint} />}
+      guessHistory={<GuessList guesses={guessHistory} />}
+      guessForm={<GuessForm guess={currentGuess} onInputGuess={setCurrentGuess} onSubmit={handleSubmit} />}
+    />
   )
 }
 
