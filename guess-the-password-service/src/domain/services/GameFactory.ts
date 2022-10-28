@@ -12,7 +12,7 @@ export class GameFactory {
   }
 
   public createGame(): Game {
-    const gamePassword = this._passwordGeneratorService.generate();
+    const gamePassword = '';
     const passwordHint = _shuffle(gamePassword.split('')).join('');
 
     return new Game(gamePassword, passwordHint);

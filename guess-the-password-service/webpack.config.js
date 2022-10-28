@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 
 const ROOT_DIR = path.resolve(__dirname, './');
@@ -25,9 +24,5 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.js', '.ts'],
-  },
-  plugins: [
-    new webpack.IgnorePlugin(/^pg-native$/)
-  ],
-  mode: 'production',
+  }
 };
